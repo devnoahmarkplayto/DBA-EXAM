@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Question 3</title>
+  </head>
+
+  <ul class="nav nav-pills" id="myTab">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#home"
+        >Newly Hired</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu1"
+        >Permanent Position</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu2">Resigned</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane container active" id="home">
+      <h1>Newly Hired</h1>
+      <div class="form-floating mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="NewlyHiredMale"
+          placeholder=""
+          required
+        />
+        <label for="floatingInput"
+          >Enter the number of newly Hired Males:</label
+        >
+      </div>
+      <div class="form-floating">
+        <input
+          type="number"
+          class="form-control"
+          id="NewlyHiredFemale"
+          placeholder=""
+          required
+        />
+        <label for="floatingInput"
+          >Enter the number of newly Hired Females:</label
+        >
+      </div>
+      <hr />
+      <a class="btn btn-primary btnNext">Next</a>
+    </div>
+    <div class="tab-pane container fade" id="menu1">
+      <h1>Permanent Position</h1>
+      <div class="form-floating mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="PemanentPositionMale"
+          placeholder=""
+          required
+        />
+        <label for="floatingInput"
+          >Enter the number of Permanent Position Males:</label
+        >
+      </div>
+      <div class="form-floating">
+        <input
+          type="number"
+          class="form-control"
+          id="PemanentPositionFemale"
+          placeholder=""
+          required
+        />
+        <label for="floatingInput"
+          >Enter the number of Permanent Position Females:</label
+        >
+      </div>
+      <hr />
+      <a class="btn btn-primary btnPrev">Back</a
+      ><a class="btn btn-primary btnNext">Next</a>
+    </div>
+    <div class="tab-pane container fade" id="menu2">
+      <h1>Resigned</h1>
+      <div class="form-floating mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="ResignedMale"
+          placeholder=""
+          required
+        />
+        <label for="floatingInput">Enter the number of Resigned Males:</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="number"
+          class="form-control"
+          id="ResignedFemale"
+          placeholder=""
+          required
+        />
+        <label for="floatingInput">Enter the number of Resigned Females:</label>
+      </div>
+      <hr />
+      <a class="btn btn-primary btnPrev">Back</a
+      ><input
+        class="btn btn-info"
+        type="button"
+        id="submit"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        value="Submit"
+      />
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Modal title</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <script>
+    Male = "";
+    Female = "";
+    total = "";
+    ResignedMale = "";
+    ResignedFemale = "";
+    Resignedtotal = "";
+    PermanentPositionMale = "";
+    PermanentPositionFemale = "";
+    PermanentPositiontotal = "";
+    NewlyHiredMale = "";
+    NewlyHiredFemale = "";
+    Hiredtotal = "";
+    const nextBtn = document.querySelectorAll(".btnNext");
+    const prevBtn = document.querySelectorAll(".btnPrev");
+    nextBtn.forEach(function (item, index) {
+      item.addEventListener("click", function () {
+        let id = index + 1;
+        let tabElement = document.querySelectorAll("#myTab li a")[id];
+        var lastTab = new bootstrap.Tab(tabElement);
+        lastTab.show();
+      });
+    });
+
+    prevBtn.forEach(function (item, index) {
+      item.addEventListener("click", function () {
+        let id = index;
+        let tabElement = document.querySelectorAll("#myTab li a")[id];
+        var lastTab = new bootstrap.Tab(tabElement);
+        lastTab.show();
+      });
+    });
+
+    function CalculateHired() {
+      NewlyHiredMale = $("#NewlyHiredMale").val();
+      NewlyHiredFemale = $("#NewlyHiredFemale").val();
+      GetPercentage(NewlyHiredMale, NewlyHiredFemale);
+    }
+    function CalculatePermanentPosition() {
+      PermanentPositionMale = $("#PemanentPositionMale").val();
+      PermanentPositionFemale = $("#PemanentPositionFemale").val();
+      GetPercentage(PermanentPositionMale, PermanentPositionFemale);
+    }
+
+    function CalculateResigned() {
+      ResignedMale = $("#ResignedMale").val();
+      ResignedFemale = $("#ResignedFemale").val();
+      GetPercentage(ResignedMale, ResignedFemale);
+    }
+
+    function GetPercentage(Male, Female) {
+      total = parseInt(Male) + parseInt(Female);
+      percentageMale = (Male / total) * 100;
+      percentageFemale = (Female / total) * 100;
+
+      console.log(percentageMale.toFixed(2));
+      console.log(percentageFemale.toFixed(2));
+      console.log(total);
+    }
+
+    $("#submit").click(function () {
+      CalculateHired();
+      percentageHiredMale = percentageMale.toFixed(2);
+      percentageHiredFemale = percentageFemale.toFixed(2);
+      Hiredtotal = total;
+      CalculatePermanentPosition();
+      percentagePermanentMale = percentageMale.toFixed(2);
+      percentagePermanentFemale = percentageFemale.toFixed(2);
+      Permanenttotal = total;
+      CalculateResigned();
+      percentageResignedMale = percentageMale.toFixed(2);
+      percentageResignedFemale = percentageFemale.toFixed(2);
+      Resignedtotal = total;
+      $("#modal-body").append(
+        '<table class="table"> <thead> <tr> <th scope="col">Status</th> <th scope="col">Male</th> <th scope="col">Female</th> <th scope="col">Total</th> </tr> </thead> <tbody> <tr> <th scope="row">Hired Employees</th> <td id="HiredMale">' +
+          percentageHiredMale +
+          '</td> <td id="HiredFemale">' +
+          percentageHiredFemale +
+          '</td> <td id="HiredTotal">' +
+          Hiredtotal +
+          '</td> </tr><tr> <th scope="row">Permanent Employees</th> <td id="PermanentMale">' +
+          percentagePermanentMale +
+          '</td> <td id="PermanentFemale">' +
+          percentagePermanentFemale +
+          '</td> <td id="PermanentTotal">' +
+          Permanenttotal +
+          '</td> </tr><tr> <th scope="row">Resigned Employees</th> <td id="ResignedMale">' +
+          percentageResignedMale +
+          '</td> <td id="ResignedFemale">' +
+          percentageResignedFemale +
+          '</td> <td id="ResignedTotal">' +
+          Resignedtotal +
+          "</td> </tr> </tbody> </table>"
+      );
+    });
+  </script>
+</html>
